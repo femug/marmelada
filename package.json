@@ -1,0 +1,47 @@
+{
+  "name": "marmelada",
+  "version": "1.0.0",
+  "description": "Randomly select people for FEMUG-SP's meetings.",
+  "license": "MIT",
+  "repository": "rafaelrinaldi/marmelada",
+  "bugs": {
+    "url": "https://github.com/rafaelrinaldi/marmelada/issues"
+  },
+  "homepage": "https://github.com/rafaelrinaldi/marmelada#readme",
+  "author": {
+    "name": "Rafael Rinaldi",
+    "email": "rafael@rinaldi.io",
+    "url": "http://rinaldi.io"
+  },
+  "main": "index.js",
+  "bin": {
+    "marmelada": "./bin/marmelada"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "scripts": {
+    "lint": "eslint",
+    "test": "npm run lint && tape test.js",
+    "postversion": "git push origin master --tags && npm publish"
+  },
+  "keywords": [
+		"femug", 
+		"femugsp", 
+		"sp", 
+		"sao paulo", 
+		"meetings", 
+		"draw", 
+		"random", 
+		"select"
+  ],
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "multiline": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^1.2.1",
+    "eslint-plugin-no-use-extend-native": "*",
+    "tape": "^4.2.0"
+  }
+}
