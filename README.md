@@ -1,6 +1,6 @@
 # marmelada [![Build Status](https://travis-ci.org/rafaelrinaldi/marmelada.svg?branch=master)](https://travis-ci.org/rafaelrinaldi/marmelada)
 
-> Randomly select people for [FEMUG-SP](http://sp.femug.com)'s meetings.
+> Randomly select people for [FEMUG-SP](http://sp.femug.com) meetings.
 
 ## Install
 
