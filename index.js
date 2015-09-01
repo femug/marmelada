@@ -80,21 +80,7 @@ function parse(data) {
 function select(list) {
   // If "total" is not specified on the options, it will retrieve the full list
   var total = options.total || list.length;
-  var index = -1;
-  var haystack = list.concat();
-  var winners = [];
-  var needle;
-
-  while(++index < total) {
-    // Pick someone randomly
-    needle = _.sample(haystack);
-    // Remove the winner from the draw list
-    haystack = _.without(haystack, needle);
-    // Update the winners list
-    winners.push(needle);
-  }
-
-  return winners;
+  return _.chain(list).shuffle().take(total).value();
 }
 
 function format(list) {
