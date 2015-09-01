@@ -29,8 +29,9 @@ Example:
 Options:
   -v --version              Display current software version.
   -h --help                 Display help and usage details.
-  -i --ignore               Ignore list (comma separated string).
   -f --format               Output format.
+  -t --total                Total spots available for the meeting (defaults to list size).
+  -i --ignore               Ignore list (comma separated and case sensitive).
 
 */});
 

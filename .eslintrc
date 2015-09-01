@@ -1,6 +1,7 @@
 {
   "env": {
-    "node": true
+    "node": true,
+    "browser": true
   },
 
   "plugins": [
@@ -9,7 +10,6 @@
 
   "rules": {
 
-    "comma-dangle": [2, "always"],
     "no-dupe-args": 2,
     "no-dupe-keys": 2,
     "no-extra-semi": 2,
@@ -29,7 +29,7 @@
     "vars-on-top": 2,
     "wrap-iife": [2, "outside"],
 
-    "strict": [2, "function"],
+    "strict": [2, "global"],
     "no-shadow": 2,
     "no-undef-init": 2,
     "no-undef": 2,
@@ -37,15 +37,12 @@
     "no-use-before-define": 2,
     "no-new-require": 2,
 
-    "array-bracket-spacing": [2, "always"],
     "brace-style": [2, "stroustrup"],
     "comma-spacing": [2, {"before": false, "after": true}],
     "comma-style": [2, "last"],
     "indent": [2, 2],
-    "lines-around-comment": [2, {"beforeBlockComment": true, "beforeLineComment": true, "allowBlockStart": true, "allowBlockEnd": false}],
     "new-cap": 2,
     "new-parens": 2,
-    "no-inline-comments": 2,
     "no-mixed-spaces-and-tabs": 2,
     "no-multiple-empty-lines": [2, {"max": 2}],
     "no-nested-ternary": 2,
@@ -54,7 +51,7 @@
     "no-trailing-spaces": 2,
     "no-unneeded-ternary": 2,
     "object-curly-spacing": [2, "always"],
-    "one-var": [2, "always"],
+    "one-var": [2, "never"],
     "operator-linebreak": [2, "after"],
     "quote-props": [2, "as-needed"],
     "quotes": [2, "single"],

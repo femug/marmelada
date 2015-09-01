@@ -1,7 +1,6 @@
 'use strict';
 
 var request = require('request');
-var objectAssign = require('object-assign');
 var _ = require('lodash');
 var sprintf = require('util').format;
 var logUpdate = require('log-update');
@@ -11,6 +10,19 @@ var organizers = ['rafaelrinaldi', 'lucasmazza', 'danielfilho'];
 var ignore = organizers;
 var options = {};
 var animation;
+
+function loading() {
+  // Will start a fancy loading animation
+  frame = spinner();
+  animation = setInterval(function() {
+    logUpdate(frame());
+  }, 100);
+}
+
+function loaded() {
+  clearInterval(animation);
+  logUpdate('');
+}
 
 function fetch(url) {
   var requestOptions = {
@@ -91,7 +103,6 @@ function format(list) {
   * By default it's the username followed by a new line.
   */
   var template = options.format || '%s';
-  var output = [];
 
   return list.map(function(item) {
     return sprintf(template, item) + '\n';
@@ -102,19 +113,6 @@ function output(input) {
   loaded();
   // Output the result to stdout
   logUpdate(input);
-}
-
-function loading() {
-  // Will start a fancy loading animation
-  frame = spinner();
-  animation = setInterval(function() {
-    logUpdate(frame());
-  }, 100);
-}
-
-function loaded() {
-  clearInterval(animation);
-  logUpdate('');
 }
 
 module.exports = function(url, _options) {
