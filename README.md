@@ -2,6 +2,8 @@
 
 > Randomly select people for [FEMUG-SP](http://sp.femug.com) meetings.
 
+<img width="173" src="screenshot.gif" />
+
 ## Install
 
 ```sh
