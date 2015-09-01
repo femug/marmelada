@@ -68,9 +68,9 @@ Format the entries list output. `%s` will be replaced by the user name.
 
 There are a few simple steps in order to select users for [FEMUG-SP](http://sp.femug.com) meetings:
 
-    1. An admin creates a new forum thread with the details for the next meeting (company hosting, address, maximum capacity, etc);
-    2. Everyone interested on participating must reply the thread showing their interest;
-    3. If the number of people interested is less than the maximum capacity, a random list of people will be selected.
+1. An admin creates a new forum thread with the details for the next meeting (company hosting, address, maximum capacity, etc);
+2. Everyone interested on participating must reply the thread showing their interest;
+3. If the number of people interested is less than the maximum capacity, a random list of people will be selected.
 
 ## License
 
