@@ -1,5 +1,6 @@
 'use strict';
 
+var marmelada = require('./');
 var minimist = require('minimist');
 var multiline = require('multiline');
 var defaults = {
@@ -9,29 +10,40 @@ var defaults = {
   ],
   alias: {
     h: 'help',
-    v: 'version'
+    v: 'version',
+    f: 'format',
+    t: 'total',
+    i: 'ignore'
   }
 };
 var version = require('./package.json').version;
 var help = multiline(function() {/*
 
-Usage: marmelada [PATH] [OPTIONS]
+Usage: marmelada [URL] [OPTIONS]
 
   Randomly select people for FEMUG-SP's meetings.
 
 Example:
-  marmelada . --foo=bar
+  marmelada http://sp.femug.com/t/femug-42-nasa --total 10
 
 Options:
   -v --version              Display current software version.
   -h --help                 Display help and usage details.
-  -f --foo                  Some custom option.
-
+  -i --ignore               Ignore list (comma separated string).
+  -f --format               Output format.
 
 */});
 
 function run(argv) {
-  console.log('marmelada is alive!');
+  var url = argv._[0];
+
+  if(!url) {
+    exports.stderr.write('You must provide at least an URL');
+    exports.exitCode = 1;
+    return;
+  }
+
+  marmelada(url, argv);
 }
 
 exports.exitCode = 0;

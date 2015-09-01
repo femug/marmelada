@@ -26,18 +26,23 @@
     "postversion": "git push origin master --tags && npm publish"
   },
   "keywords": [
-		"femug", 
-		"femugsp", 
-		"sp", 
-		"sao paulo", 
-		"meetings", 
-		"draw", 
-		"random", 
-		"select"
+    "femug",
+    "femugsp",
+    "sp",
+    "sao paulo",
+    "meetings",
+    "draw",
+    "random",
+    "select"
   ],
   "dependencies": {
+    "elegant-spinner": "^1.0.0",
+    "lodash": "^3.10.1",
+    "log-update": "^1.0.0",
     "minimist": "^1.2.0",
-    "multiline": "^1.0.2"
+    "multiline": "^1.0.2",
+    "object-assign": "^4.0.1",
+    "request": "^2.61.0"
   },
   "devDependencies": {
     "eslint": "^1.2.1",
