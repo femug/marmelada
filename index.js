@@ -79,7 +79,7 @@ function parse(data) {
 
 function select(list) {
   // If "total" is not specified on the options, it will retrieve the full list
-  var total = options.total || list.length;
+  var total = options.total < list.length ? options.total : list.length;
   return _.chain(list).shuffle().take(total).value();
 }
 
