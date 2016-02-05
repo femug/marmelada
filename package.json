@@ -1,6 +1,6 @@
 {
   "name": "marmelada",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Randomly select people for FEMUG-SP meetings.",
   "license": "MIT",
   "repository": "rafaelrinaldi/marmelada",
