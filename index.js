@@ -6,7 +6,7 @@ var sprintf = require('util').format;
 var logUpdate = require('log-update');
 var spinner = require('elegant-spinner');
 var frame = spinner();
-var organizers = ['rafaelrinaldi', 'lucasmazza', 'danielfilho'];
+var organizers = ['diogosilvaferreira', 'lucasmazza', 'marcelgsantos'];
 var ignore = organizers;
 var options = {};
 var animation;
@@ -26,11 +26,7 @@ function loaded() {
 
 function fetch(url) {
   var requestOptions = {
-    /**
-    * Big arbitrary number so we always get a fresh full list.
-    * There's probably a better way to do it though.
-    */
-    uri: url + '/999.json',
+    uri: url,
     method: 'GET',
 
     /**
@@ -74,7 +70,11 @@ function parse(data) {
     return _.includes(ignore, participant);
   });
 
-  return participants;
+  return Promise.all(participants.map(function(username) {
+    return fetch('https://sp.femug.com/users/' + username + '.json').then(function(response) {
+      return [response.user.name, response.user.user_fields['1']];
+    });
+  }));
 }
 
 function select(list) {
@@ -91,8 +91,8 @@ function format(list) {
   var template = options.format || '%s';
 
   return list.map(function(item) {
-    return sprintf(template, item) + '\n';
-  }).toString().replace(/\,/gm, '').trim();
+    return sprintf(template, item[0], item[1]) + '\n';
+  }).toString().trim();
 }
 
 function output(input) {
@@ -105,7 +105,11 @@ module.exports = function(url, _options) {
   options = _options;
   loading();
 
-  fetch(url)
+  /**
+  * Big arbitrary number so we always get a fresh full list.
+  * There's probably a better way to do it though.
+  */
+  fetch(url + '/999.json')
     .catch(function(error) {
       output(error);
     })
